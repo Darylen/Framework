@@ -20,7 +20,7 @@ namespace Web.WebDriver
         {
             if (driver == null)
             {
-                var dir = "C:\\Users\\Darylen\\source\\repos\\Web\\Web\\Utils";
+                var dir = Directory.GetCurrentDirectory() + "\\Web\\Web\\Utils";
                 driver = new ChromeDriver(System.IO.Path.GetFullPath(dir));
                 //driver.Manage().Timeouts().ImplicitWait.Add(TimeSpan.FromSeconds(30));
                // driver.Manage().Timeouts().PageLoad.Add(TimeSpan.FromSeconds(30));
