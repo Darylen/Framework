@@ -85,7 +85,7 @@ namespace Web.Tests
         }
 
         [Test] //Test #9
-        public void CheckViews()
+        public void CheckKurs()
         {
             Assert.AreEqual(steps.CheckKurs(), true);
         }
