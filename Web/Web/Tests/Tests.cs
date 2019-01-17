@@ -78,11 +78,11 @@ namespace Web.Tests
             Assert.AreEqual(steps.CheckReturnToMain(), true);
         }
 
-        [Test] //Test #8
-        public void CheckViews()
-        {
-            Assert.AreEqual(steps.CheckViews(), true);
-        }
+        //[Test] //Test #8
+        //public void CheckViews()
+        //{
+        //    Assert.AreEqual(steps.CheckViews(), true);
+        //}
 
         [Test] //Test #9
         public void CheckKurs()
