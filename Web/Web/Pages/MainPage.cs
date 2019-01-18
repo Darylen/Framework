@@ -14,14 +14,11 @@ namespace Web.Pages
     class MainPage
     {
         private const string PAGE_URL = "https://www.anextour.com/";
+        private const string url = "https://www.anextour.com/cyprus/hotel/flora-maria-hotel-cyprus?CHECKIN_BEG=20190127&CHECKIN_END=20190127&HOTEL=15757&NIGHTMIN=7&NIGHTMAX=7&ADULT=2&CHILD=0&AGE1=&AGE2=&AGE3=&TOWNFROM=2&STATE=79&CURRENCY=1&PTYPE=&HOTELTYPES=&COSTMIN=&COSTMAX=&MEALLIST=&INSTANT_CONFIRM=0&SMART_SEARCH=FLORA%20MARIA%20HOTEL";
         private IWebDriver driver;
+        WebDriverWait wait;
 
-        [FindsBy(How = How.XPath, Using = "/html/body/div[2]/div[2]/div/div/div/div[2]/div/ul[1]/li[3]/a")]
-        private IWebElement News;
-
-        [FindsBy(How = How.XPath, Using = "/html/body/div[2]/div[2]/div/div/div/div[2]/div/ul[1]/li[3]/ul/li[1]/a")]
-        private IWebElement MainNews;
-
+       
         [FindsBy(How = How.XPath, Using = "/html/body/div[2]/div[2]/div/div/div/div[2]/div/ul[2]/li[1]/a/span")]
         private IWebElement regionRef;
 
@@ -31,12 +28,7 @@ namespace Web.Pages
         [FindsBy(How = How.XPath, Using = "/html/body/div[2]/div[2]/div/div/div/div[2]/div/ul[1]/li[1]/a")]
         private IWebElement TouristRef;
 
-        [FindsBy(How = How.XPath, Using = "/html/body/div[2]/div[2]/div/div/div/div[2]/div/ul[1]/li[1]/ul/li[9]/a")]
-        private IWebElement deal;
-
-        [FindsBy(How = How.XPath, Using = "/html/body/div[6]/div[2]/div[2]/div/div[1]/div/div/div/div/div/div/div/p[4]/a")]
-        private IWebElement downdeal;
-
+      
         [FindsBy(How = How.XPath, Using = "//*[@id='mini-search']/nav/div/div/div[6]/div/button")]
         private IWebElement stardrop;
 
@@ -46,195 +38,144 @@ namespace Web.Pages
         [FindsBy(How = How.XPath, Using = "//*[@id='mini-search']/nav/div/div/div[9]/a")]
         private IWebElement starseach;
 
-        [FindsBy(How = How.XPath, Using = "/html/body/div[2]/div[2]/div/div/div/div[2]/div/ul[1]/li[2]/a")]
-        private IWebElement AboutCompany;
-
-        [FindsBy(How = How.XPath, Using = "/html/body/div[2]/div[2]/div/div/div/div[2]/div/ul[1]/li[2]/ul/li[3]/a")]
-        private IWebElement Contacts;
-
-        [FindsBy(How = How.XPath, Using = "/html/body/div[2]/div[2]/div/div/div/div[2]/div/ul[1]/li[4]/a")]
-        private IWebElement Country;
-
-        [FindsBy(How = How.XPath, Using = "/html/body/div[2]/div[2]/div/div/div/div[2]/div/ul[1]/li[4]/ul/li[30]/a/span[2]")]
-        private IWebElement CountryT;
-
-        [FindsBy(How = How.XPath, Using = "/html/body/div[6]/div[1]/div/div[1]/div/div[16]/a/img")]
-        private IWebElement View;
-
-        [FindsBy(How = How.XPath, Using = "/html/body/div[6]/div[1]/div/div[2]/div[2]/i")]
-        private IWebElement NextView;
-  
-        [FindsBy(How = How.XPath, Using = "/html/body/div[2]/div[1]/div/div/div[2]/a/span[2]")]
-        private IWebElement Kurs;
-        //*[@id="attentionTop"]/div/div/div/div/span/a
-
-        [FindsBy(How = How.XPath, Using = "/html/body/div[7]/div[1]/div/div[3]/a[1]")]
-        private IWebElement FaceBook;
-
-        [FindsBy(How = How.XPath, Using = "/html/body/div[7]/div[1]/div/div[3]/a[2]")]
-        private IWebElement VK;
-
-        [FindsBy(How = How.XPath, Using = "/html/body/div[7]/div[1]/div/div[3]/a[3]")]
-        private IWebElement OK;
-
-        [FindsBy(How = How.XPath, Using = "/html/body/div[7]/div[1]/div/div[3]/a[4]")]
-        private IWebElement IG;
 
         [FindsBy(How = How.XPath, Using = "//*[@id='attentionTop']/div/div/div/div/span/a")]
         private IWebElement closecooki;
 
+        //*[@id="hotel-search-panel"]/div/div/div[5]/div[1]/div/div/div[2]/div/div[2]/table/tbody/tr/td[4]/span[2]/span
+        [FindsBy(How = How.XPath, Using = "//*[@id='hotel-search-panel']/div/div/div[5]/div[1]/div/div/div[2]/div/div[2]/table/tbody/tr/td[4]/span[2]/span")]
+        private IWebElement prace;
+
+        
+        [FindsBy(How = How.XPath, Using = "//*[@id='hotel-search-panel']/div/div/div[2]/div[4]/div/div/div[1]/span/span[2]/span")]
+        private IWebElement inPrice;
+
+        
+        [FindsBy(How = How.XPath, Using = "//*[@id='ui-select-choices-row-16-0']/span/div")]
+        private IWebElement RPrice;
+
+        [FindsBy(How = How.XPath, Using = "/html/body/div[2]/div[1]/div/div/div[2]/ul/li[10]/a")]
+        private IWebElement MNamber;
+
+        [FindsBy(How = How.XPath, Using = "/html/body/div[2]/div[2]/div/div/div/div[2]/div/ul[2]/li[2]/a")]
+        private IWebElement SecondNamber;
+
+        [FindsBy(How = How.XPath, Using = "/html/body/div[6]/div[2]/div/div/div/div/div[2]/div[1]/div/div/div[2]/div[1]/div[1]/div[1]/a/span[1]")]
+        private IWebElement Nme;
+
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='mini-search']/nav/div/div/div[8]/div/div[1]/input")]
+        private IWebElement Npeople;
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='mini-search']/nav/div/div/div[8]/div/div[2]/div[2]/div/div[1]/span/span[2]/span")]
+        private IWebElement Chield;
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='ui-select-choices-row-4-3']/span/div")]
+        private IWebElement NChield;
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='navbar']/ul[2]/li[2]/a")]
+        private IWebElement NameCont;
+
         public MainPage(IWebDriver driver)
         {
             this.driver = driver;
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
             PageFactory.InitElements(this.driver, this);
         }
 
-        public bool CheckDownload()
-        {
-            driver.Navigate().GoToUrl(PAGE_URL);
-            Thread.Sleep(3000);
-            closecooki.Click();
-            Thread.Sleep(1000);
-            TouristRef.Click();
-            Thread.Sleep(5000);
-           // deal.Click();
-            driver.Navigate().GoToUrl("https://www.anextour.com/page/dogovor-publichnoy-oferty");
-            DealPage d = new DealPage(driver);
-            d.CheckDown();
-            return true;
-        }
-
-        public bool CheckCont()
-        {
-            driver.Navigate().GoToUrl(PAGE_URL);
-            Thread.Sleep(3000);
-            closecooki.Click();
-            Thread.Sleep(1000);
-            AboutCompany.Click();
-            Thread.Sleep(5000);
-            Contacts.Click();
-            driver.Navigate().GoToUrl("https://www.anextour.com/page/kontaktnaya-informatsiya");
-            Cont d = new Cont(driver);
-            d.CheckDominik();
-            return true;
-        }
-
+       
         public bool CheckLanguage()
         {
             driver.Navigate().GoToUrl(PAGE_URL);
-            Thread.Sleep(3000);
-
-           // var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
-           //var result = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[2]/div[2]/div/div/div/div[2]/div/ul[2]/li[1]/a/span")));
-           // if (result == null)
-           // {
-           //     return false;
-           // }
+            wait.Until(ExpectedConditions.ElementToBeClickable(regionRef));
             regionRef.Click();
-            Thread.Sleep(1000);
+            wait.Until(ExpectedConditions.ElementToBeClickable(region));
             region.Click();
-            return true;
+            if (NameCont.Text == "МИНСК")
+                return true;
+            else return false;
         }
 
-        public bool CheckStars()
+        public string CheckStars()
         {
             driver.Navigate().GoToUrl(PAGE_URL);
-            Thread.Sleep(3000);
+            wait.Until(ExpectedConditions.ElementToBeClickable(closecooki));
             closecooki.Click();
-            Thread.Sleep(1000);
+            wait.Until(ExpectedConditions.ElementToBeClickable(stardrop));
             stardrop.Click();
-            Thread.Sleep(1000);
+            wait.Until(ExpectedConditions.ElementToBeClickable(starboxbrop));
             starboxbrop.Click();
-            Thread.Sleep(1000);
+            wait.Until(ExpectedConditions.ElementToBeClickable(starseach));
             starseach.Click();
-            return true;
+            wait.Until(ExpectedConditions.ElementToBeClickable(Nme));
+            return  Nme.Text;
         }
 
-        public bool CheckMainNews()
+        public int CheckPrace()
+        {
+            driver.Navigate().GoToUrl(url);
+            wait.Until(ExpectedConditions.ElementToBeClickable(closecooki));
+            closecooki.Click();
+            wait.Until(ExpectedConditions.ElementToBeClickable(prace));
+            string y = prace.Text;
+            int x = Convert.ToInt16(y);
+            return x;
+        }
+
+        public void INSPrice()
+        {
+            driver.Navigate().GoToUrl(url);
+            wait.Until(ExpectedConditions.ElementToBeClickable(closecooki));
+            closecooki.Click();
+            wait.Until(ExpectedConditions.ElementToBeClickable(inPrice));
+            inPrice.Click();
+            wait.Until(ExpectedConditions.ElementToBeClickable(RPrice));
+            RPrice.Click();
+
+        }
+
+            public void ClickPrice()
+        {
+            driver.Navigate().GoToUrl(url);
+            wait.Until(ExpectedConditions.ElementToBeClickable(closecooki));
+            closecooki.Click();
+            wait.Until(ExpectedConditions.ElementToBeClickable(inPrice));
+            inPrice.Click();
+            wait.Until(ExpectedConditions.ElementToBeClickable(RPrice));
+            RPrice.Click();
+        }
+
+        public bool ChekNamber()
         {
             driver.Navigate().GoToUrl(PAGE_URL);
-            Thread.Sleep(3000);
-            closecooki.Click();
-            Thread.Sleep(1000);
-            News.Click();
-            Thread.Sleep(1000);
-            MainNews.Click();
-            return true;
+            wait.Until(ExpectedConditions.ElementToBeClickable(SecondNamber));
+            string number = SecondNamber.Text;
+            wait.Until(ExpectedConditions.ElementToBeClickable(regionRef));
+            regionRef.Click();
+            wait.Until(ExpectedConditions.ElementToBeClickable(region));
+            region.Click();
+            wait.Until(ExpectedConditions.ElementToBeClickable(MNamber));
+            if (number == MNamber.Text)
+                return false;
+            else return true;
         }
 
-        public bool CheckCountryTours()
+        public string CheckKolPeple()
         {
             driver.Navigate().GoToUrl(PAGE_URL);
-            Thread.Sleep(3000);
-            closecooki.Click();
-            Thread.Sleep(1000);
-            Country.Click();
-            Thread.Sleep(1000);
-            CountryT.Click();
-            driver.Navigate().GoToUrl("https://www.anextour.com/portugal");
-            CountryPage d = new CountryPage(driver);
-            d.CheckCStars();
-            return true;
+            wait.Until(ExpectedConditions.ElementToBeClickable(Npeople));
+            return Npeople.Text;
         }
 
-        public bool CheckReturnToMain()
+        public void Peple()
         {
             driver.Navigate().GoToUrl(PAGE_URL);
-            Thread.Sleep(3000);
-            closecooki.Click();
-            Thread.Sleep(1000);
-            Country.Click();
-            Thread.Sleep(1000);
-            CountryT.Click();
-            driver.Navigate().GoToUrl("https://www.anextour.com/portugal");
-            CountryPage d = new CountryPage(driver);
-            d.CheckReturn();
-            Thread.Sleep(3000);
-            return true;
-        }
-
-        public bool CheckViews()
-        {
-            driver.Navigate().GoToUrl(PAGE_URL);
-            Thread.Sleep(3000);
-            closecooki.Click();
-            Thread.Sleep(1000);
-            NextView.Click();
-            Thread.Sleep(1000);
-            View.Click();
-            return true;
-        }
-
-        public bool CheckKurs()
-        {
-            driver.Navigate().GoToUrl(PAGE_URL);
-            Thread.Sleep(3000);
-            closecooki.Click();
-            Thread.Sleep(1000);
-            Kurs.Click();
-            Thread.Sleep(1000);
-            return true;
-        }
-
-        public bool CheckSocial()
-        {
-            driver.Navigate().GoToUrl(PAGE_URL);
-            Thread.Sleep(3000);
-            closecooki.Click();
-            Thread.Sleep(1000);
-            FaceBook.Click();
-            OK.Click();
-            VK.Click();
-            IG.Click();
-            Thread.Sleep(1000);
-            return true;
-        }
-
-        private void ScrollBy(int by)
-        {
-            IJavaScriptExecutor exe = driver as IJavaScriptExecutor;
-            var js = String.Format("window.scrollBy(0, {0});", by);
-            exe.ExecuteScript(js);
+            wait.Until(ExpectedConditions.ElementToBeClickable(Npeople));
+            Npeople.Click();
+            wait.Until(ExpectedConditions.ElementToBeClickable(Chield));
+            Chield.Click();
+            wait.Until(ExpectedConditions.ElementToBeClickable(NChield));
+            NChield.Click();
         }
     }
 }

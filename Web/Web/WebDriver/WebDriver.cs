@@ -20,10 +20,16 @@ namespace Web.WebDriver
         {
             if (driver == null)
             {
-                var dir = Directory.GetCurrentDirectory() + "\\Web\\Web\\Utils";
-                driver = new ChromeDriver(System.IO.Path.GetFullPath(dir));
+                //var dir = Directory.GetCurrentDirectory() + "\\Web\\Web\\Utils";
+                //driver = new ChromeDriver(System.IO.Path.GetFullPath(dir));
                 //driver.Manage().Timeouts().ImplicitWait.Add(TimeSpan.FromSeconds(30));
-               // driver.Manage().Timeouts().PageLoad.Add(TimeSpan.FromSeconds(30));
+                // driver.Manage().Timeouts().PageLoad.Add(TimeSpan.FromSeconds(30));
+
+
+                var dir = Directory.GetCurrentDirectory() + "\\Web\\Utils";
+                driver = new FirefoxDriver(System.IO.Path.GetFullPath(dir));
+                driver.Manage().Timeouts().ImplicitWait.Add(TimeSpan.FromSeconds(40));
+                driver.Manage().Timeouts().PageLoad.Add(TimeSpan.FromSeconds(40));
             }
 
             return driver;

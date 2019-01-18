@@ -30,76 +30,47 @@ namespace Web.Steps
             return mainPage.CheckLanguage();
         }
 
-        public bool CheckCont()
+        public bool CheckNamber()
         {
             MainPage mainPage = new MainPage(driver);
-            return mainPage.CheckCont();
+            return mainPage.ChekNamber();
         }
 
-        public bool CheckDown()
-        {
-            DealPage mainPage = new DealPage(driver);
-            return mainPage.CheckDown();
-        }
-
-        public bool CheckDominik()
-        {
-            Cont mainPage = new Cont(driver);
-            return mainPage.CheckDominik();
-        }
-
-        public bool CheckDownload()
-        {
-            MainPage mainPage = new MainPage(driver);
-            return mainPage.CheckDownload();
-        }
-
-        public bool CheckStars()
+        public string CheckStars()
         {
             MainPage mainPage = new MainPage(driver);
             return mainPage.CheckStars();
         }
 
-        public bool CheckMainNews()
+       
+        
+
+        public bool CheckPrace()
         {
             MainPage mainPage = new MainPage(driver);
-            return mainPage.CheckMainNews();
+            int x = mainPage.CheckPrace();
+            mainPage.INSPrice();
+            int y = mainPage.CheckPrace();
+            int z = x * 66;
+            if (z == y) return true;
+            else return false;
         }
 
-        public bool CheckCountryTours()
+        public bool CheckPep()
         {
             MainPage mainPage = new MainPage(driver);
-            return mainPage.CheckCountryTours();
+            string v = mainPage.CheckKolPeple();
+            mainPage.Peple();
+            string b = mainPage.CheckKolPeple();
+            if (v == b) return true;
+            else return false;
         }
 
-        public bool CheckReturnToMain()
+        public string CheckAll()
         {
             MainPage mainPage = new MainPage(driver);
-            return mainPage.CheckReturnToMain();
-        }
-
-        public bool CheckReturn()
-        {
-            CountryPage mainPage = new CountryPage(driver);
-            return mainPage.CheckReturn();
-        }
-
-        public bool CheckViews()
-        {
-            MainPage mainPage = new MainPage(driver);
-            return mainPage.CheckViews();
-        }
-
-        public bool CheckKurs()
-        {
-            MainPage mainPage = new MainPage(driver);
-            return mainPage.CheckKurs();
-        }
-
-        public bool CheckSocial()
-        {
-            MainPage mainPage = new MainPage(driver);
-            return mainPage.CheckSocial();
+            mainPage.Peple();
+            return mainPage.CheckStars();
         }
     }
 }

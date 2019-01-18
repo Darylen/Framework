@@ -30,70 +30,44 @@ namespace Web.Tests
         [Test] //Test #1
         public void CheckLanguage()
         {
-            //driver.Navigate().GoToUrl("https://www.anextour.com/");
-            //Thread.Sleep(5000);
-
-            //driver.FindElement(By.XPath("/html/body/div[2]/div[2]/div/div/div/div[2]/div/ul[2]/li[1]/a/span")).Click();
-            //Thread.Sleep(2000);
-            //driver.FindElement(By.XPath("//*[@id='regionModal']/div/div/div[2]/div[1]/div/a")).Click();
-            //driver.Close();
-
-
             Assert.AreEqual(steps.CheckLanguage(), true);
         }
 
         [Test] //Test #2
-        public void CheckDownload()
+        public void CheckStars()
         {
-            Assert.AreEqual(steps.CheckDownload(), true);
+            Assert.AreEqual(steps.CheckStars(), "4 * ***");
         }
 
         [Test] //Test #3
-        public void CheckStars()
+        public void CheckKonvert()
         {
-            Assert.AreEqual(steps.CheckStars(), true);
+            bool Relust = steps.CheckPrace();
+
+            Assert.AreEqual(Relust, true);
         }
 
         [Test] //Test #4
-        public void CheckCont()
+        public void CheckNumber()
         {
-            Assert.AreEqual(steps.CheckCont(), true);
+            bool Relust = steps.CheckNamber();
+
+            Assert.AreEqual(Relust, true);
         }
 
         [Test] //Test #5
-        public void CheckMainNews()
+        public void CheckNumberPeople()
         {
-            Assert.AreEqual(steps.CheckMainNews(), true);
+            bool Relust = steps.CheckPep();
+
+            Assert.AreEqual(Relust, true);
         }
 
         [Test] //Test #6
-        public void CheckContryTours()
+        public void CheckSeach()
         {
-            Assert.AreEqual(steps.CheckCountryTours(), true);
+            Assert.AreEqual(steps.CheckAll(), "4 * ***");
         }
 
-        [Test] //Test #7
-        public void CheckReturnToMain()
-        {
-            Assert.AreEqual(steps.CheckReturnToMain(), true);
-        }
-
-        //[Test] //Test #8
-        //public void CheckViews()
-        //{
-        //    Assert.AreEqual(steps.CheckViews(), true);
-        //}
-
-        [Test] //Test #9
-        public void CheckKurs()
-        {
-            Assert.AreEqual(steps.CheckKurs(), true);
-        }
-
-        [Test] //Test #10
-        public void CheckSocial()
-        {
-            Assert.AreEqual(steps.CheckSocial(), true);
-        }
     }
 }
